@@ -1,6 +1,6 @@
 import React, { FC, useCallback } from "react";
 import { ScreenContainer } from "../../../../UIKit/screenContainer";
-import { chartsModel, ICity } from "../../entities/ChatsModel";
+import { chartsModel, ICity } from "../../entities/ChartsModel";
 import Carousel from "react-native-reanimated-carousel";
 import { size } from "../../../../Utils";
 import { Chart } from "../components/chart";

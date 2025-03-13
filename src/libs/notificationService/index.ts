@@ -1,6 +1,7 @@
 
 import { AuthorizationStatus, requestPermission, getMessaging, getToken, hasPermission, onMessage, onTokenRefresh, registerDeviceForRemoteMessages } from '@react-native-firebase/messaging';
 import notifee, { AndroidImportance } from '@notifee/react-native';
+import { PermissionsAndroid } from 'react-native';
 
 class NotificationService {
     private messaging = getMessaging();
@@ -13,14 +14,11 @@ class NotificationService {
 
     private checkNotificationPermissionStatus = async (): Promise<boolean> => {
         const status = await hasPermission(this.messaging);
-        console.log('============status========================');
-        console.log(status, AuthorizationStatus);
-        console.log('====================================');
         if (status === AuthorizationStatus.AUTHORIZED) {
             return true;
         } else {
-            const status = await requestPermission(this.messaging);
-            return status === AuthorizationStatus.AUTHORIZED
+            const status = await PermissionsAndroid.request('android.permission.POST_NOTIFICATIONS');
+            return status === PermissionsAndroid.RESULTS.GRANTED
         };
     };
 

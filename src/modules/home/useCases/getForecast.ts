@@ -1,7 +1,7 @@
 import { config } from "../../../Config";
 import { requester } from "../../../libs/requester";
 import { links } from "../../../Links";
-import { chartsModel } from "../entities/ChatsModel";
+import { chartsModel } from "../entities/ChartsModel";
 
 export const getForecast = async () => {
     try {

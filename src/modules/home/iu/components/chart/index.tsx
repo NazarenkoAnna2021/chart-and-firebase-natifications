@@ -2,7 +2,7 @@ import { FC, memo, useEffect, useMemo, useState } from "react";
 import { ActivityIndicator, RefreshControl, ScrollView, Text, View } from "react-native";
 import { useUiContext } from "../../../../../UIProvider";
 import { getStyles } from "./styles";
-import { chartsModel, ICity } from "../../../entities/ChatsModel";
+import { chartsModel, ICity } from "../../../entities/ChartsModel";
 import { getForecast } from "../../../useCases/getForecast";
 import { IWeather } from "../../../entities/IWeather";
 import { LineChart } from "react-native-gifted-charts";

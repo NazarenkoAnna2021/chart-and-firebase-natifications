@@ -1,6 +1,6 @@
 import { FC, memo, useMemo } from "react";
 import { Text, TouchableOpacity } from "react-native";
-import { chartsModel, ICity } from "../../../entities/ChatsModel";
+import { chartsModel, ICity } from "../../../entities/ChartsModel";
 import { useUiContext } from "../../../../../UIProvider";
 import { getStyles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
