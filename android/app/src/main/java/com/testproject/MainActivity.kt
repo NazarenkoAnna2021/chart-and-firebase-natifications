@@ -1,4 +1,4 @@
-package com.testproject
+package com.testproject.chat
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
