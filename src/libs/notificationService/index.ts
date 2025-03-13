@@ -1,5 +1,5 @@
 
-import { AuthorizationStatus, requestPermission, getMessaging, getToken, hasPermission, onMessage, onTokenRefresh, registerDeviceForRemoteMessages } from '@react-native-firebase/messaging';
+import { AuthorizationStatus, getMessaging, getToken, hasPermission, onMessage, onTokenRefresh, registerDeviceForRemoteMessages } from '@react-native-firebase/messaging';
 import notifee, { AndroidImportance } from '@notifee/react-native';
 import { PermissionsAndroid } from 'react-native';
 

@@ -3,6 +3,7 @@ import { ScreenContainer } from "../../../../UIKit/screenContainer";
 import { FlatList } from "react-native";
 import { ChartCardItem } from "../components/chartCardItem";
 import { ICity, chartsModel } from "../../entities/ChartsModel";
+import { MainHeader } from "../../../../UIKit/MainHeader";
 
 export const HomeView: FC = () => {
     const cities = chartsModel.useCharts().cities;
@@ -14,7 +15,7 @@ export const HomeView: FC = () => {
     ), []);
 
     return (
-        <ScreenContainer edges={['top', 'bottom']}>
+        <ScreenContainer edges={['top', 'bottom']} headerComponent={<MainHeader />}>
             <FlatList
                 data={cities}
                 renderItem={renderItem}

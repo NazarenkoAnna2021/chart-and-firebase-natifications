@@ -3,12 +3,13 @@ import { translations } from './Translations';
 import { storage } from '../../libs/storage';
 import { getLocales } from "react-native-localize";
 import { useEffect, useMemo, useState } from 'react';
+import { TLocales } from './ILocalization';
 
 const i18n = new I18n();
 
 export const useLocalization = () => {
-    const [localizationStore, setLocalizationStore] = useState('');
-    const locales = useMemo(() => Object.keys(translations), [translations]);
+    const [localizationStore, setLocalizationStore] = useState<TLocales>('en');
+    const locales = useMemo(() => Object.keys(translations) as TLocales[], [translations]);
 
     useEffect(() => {
         i18n.enableFallback = true;
@@ -68,7 +69,7 @@ export const useLocalization = () => {
     };
 
     const setLocale = (locale: string) => {
-        setLocalizationStore(locale);
+        setLocalizationStore(locale as TLocales);
         persistLanguage(locale);
     };
 

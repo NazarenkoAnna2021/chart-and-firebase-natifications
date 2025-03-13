@@ -58,6 +58,7 @@ export const Chart: FC<IProps> = memo(({ item }) => {
                     data2={feelsLike}
                     color={colors.primary}
                     color2={'blue'}
+                    rulesColor={colors.border}
                     yAxisTextStyle={{ color: colors.text }}
                     startFillColor={colors.primary}
                     endFillColor={colors.primary}
@@ -78,12 +79,13 @@ export const Chart: FC<IProps> = memo(({ item }) => {
                 <LineChart
                     disableScroll
                     color={colors.primary}
-                    yAxisTextStyle={{ color: 'lightgray' }}
+                    yAxisTextStyle={{ color: colors.text }}
                     rulesType="solid"
                     initialSpacing={0}
-                    yAxisColor="lightgray"
-                    xAxisColor="lightgray"
+                    yAxisColor={colors.border}
+                    xAxisColor={colors.border}
                     backgroundColor={colors.background}
+                    rulesColor={colors.border}
                     width={size.width}
                     spacing={((size.width - 10) / 24)}
                     noOfSections={5}

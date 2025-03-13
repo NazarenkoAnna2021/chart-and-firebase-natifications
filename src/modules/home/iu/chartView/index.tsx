@@ -18,7 +18,7 @@ export const ChartView: FC = () => {
     ), []);
 
     return (
-        <ScreenContainer edges={['top', 'bottom']} headerComponent={<MainHeader/>}>
+        <ScreenContainer edges={['top', 'bottom']} headerComponent={<MainHeader isGoBack/>}>
             <Carousel
                 mode={'parallax'}
                 width={size.width}
