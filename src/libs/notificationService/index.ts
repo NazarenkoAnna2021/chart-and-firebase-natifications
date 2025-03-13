@@ -1,6 +1,5 @@
 
-import { initializeApp } from "firebase/app";
-import { AuthorizationStatus, FirebaseMessagingTypes, getMessaging, getToken, hasPermission, onMessage, onTokenRefresh, registerDeviceForRemoteMessages } from '@react-native-firebase/messaging';
+import { AuthorizationStatus, requestPermission, getMessaging, getToken, hasPermission, onMessage, onTokenRefresh, registerDeviceForRemoteMessages } from '@react-native-firebase/messaging';
 import notifee, { AndroidImportance } from '@notifee/react-native';
 
 class NotificationService {
@@ -13,8 +12,16 @@ class NotificationService {
     }
 
     private checkNotificationPermissionStatus = async (): Promise<boolean> => {
-        const status = await hasPermission(this.messaging)
-        return status === AuthorizationStatus.AUTHORIZED
+        const status = await hasPermission(this.messaging);
+        console.log('============status========================');
+        console.log(status, AuthorizationStatus);
+        console.log('====================================');
+        if (status === AuthorizationStatus.AUTHORIZED) {
+            return true;
+        } else {
+            const status = await requestPermission(this.messaging);
+            return status === AuthorizationStatus.AUTHORIZED
+        };
     };
 
     private showForegroundNotification = async (message: any) => {
