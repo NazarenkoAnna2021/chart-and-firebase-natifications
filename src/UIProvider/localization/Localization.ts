@@ -21,7 +21,7 @@ export const useLocalization = () => {
         try {
             if (!localizationStore) {
                 const deviceLocale = getLocales()?.[0]?.languageCode || '';
-                const isLanguageIncludes = Object.keys(translations).includes(deviceLocale);
+                const isLanguageIncludes = locales;
                 if (isLanguageIncludes && deviceLocale) {
                     setLocale(deviceLocale);
                 } else {
@@ -43,17 +43,16 @@ export const useLocalization = () => {
     };
 
     const persistLanguage = (data: string | null) => {
-        if (data) {
-            storage.set('LANGUAGE', data);
-        } else {
+        if (!data) {
             storage.remove('LANGUAGE');
+            return;
         };
+        storage.set('LANGUAGE', data);
     };
 
     const persistTranslations = (data: object) => {
-        if (data) {
-            storage.set('TRANSLATIONS', data);
-        };
+        if (!data) return;
+        storage.set('TRANSLATIONS', data);
     };
 
     const setTranslation = (translations: any) => {
@@ -74,8 +73,8 @@ export const useLocalization = () => {
     };
 
     return {
-        locales,
         locale: localizationStore,
+        locales,
         setLocale,
         setTranslation,
         t,
