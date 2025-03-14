@@ -19,15 +19,14 @@ export const useLocalization = () => {
 
     const setLanguageByDeviceLocale = (defaultLocale: string = 'en') => {
         try {
-            if (!localizationStore) {
-                const deviceLocale = getLocales()?.[0]?.languageCode || '';
-                const isLanguageIncludes = locales;
-                if (isLanguageIncludes && deviceLocale) {
-                    setLocale(deviceLocale);
-                } else {
-                    setLocale(defaultLocale);
-                };
+            if (localizationStore) return;
+            const deviceLocale = getLocales()?.[0]?.languageCode || '';
+            const isLanguageIncludes = locales;
+            if (isLanguageIncludes && deviceLocale) {
+                setLocale(deviceLocale);
+                return;
             };
+            setLocale(defaultLocale);
         } catch (error) {
             console.warn('Localization -> setLanguageByDeviceLocale: ', error);
         };
